@@ -1,10 +1,13 @@
 // Slider portfolio
-
+// нажатие на картинку
 const sliderPortfolio = document.querySelector('.slider-portfolio');
 const srcEnCoursSlider = document.querySelector('.img-visible-slider');
 const allPicsPortfolio = Array.from(document.querySelectorAll('.grid-item img'));
+// кнопка вправо
 const rightPortfolio = document.querySelector('.btn-right');
+// кнопка влево
 const leftPortfolio = document.querySelector('.btn-left');
+// крестик
 const fermerSlide = document.querySelector('.btn-fermer-slider');
 
 let photoEnCours;
@@ -20,7 +23,7 @@ allPicsPortfolio.forEach(item => {
         //console.log(indexEnCours);
     })
 })
-
+// кнопка вправо
 rightPortfolio.addEventListener('click', () => {
 
     if(indexEnCours === 20) {
@@ -37,7 +40,7 @@ rightPortfolio.addEventListener('click', () => {
     console.log(indexEnCours);
 })
 
-
+// кнопка влево
 leftPortfolio.addEventListener('click', () => {
 
     if(indexEnCours === 0) {
@@ -53,7 +56,7 @@ leftPortfolio.addEventListener('click', () => {
     indexEnCours = allPicsPortfolio.indexOf(photoEnCours);
     console.log(indexEnCours);
 })
-
+// крестик 
 fermerSlide.addEventListener('click',() => {
     sliderPortfolio.style.display = "none";
 })

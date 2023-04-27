@@ -11,28 +11,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
-
+<script>
+    // Создаем новый объект XMLHttpRequest
+    var xhttp = new XMLHttpRequest();
+    // Открываем файл footer.xml
+    xhttp.open("GET", "./xml/footer.xml", true);
+    // Когда файл загружен
+    xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        // Заменяем пустой футер данными из XML файла
+        document.getElementById("myForm").innerHTML = this.responseText;
+    }
+    };
+    // Загружаем файл
+    xhttp.send();
+</script>
         <div class="menu">
             <h2 class="titre-menu">Меню</h2>
             <ul class="liste-menu">
-                <li class="item-nav"><a href="/">Добро пожаловать</a></li>
-                <li class="item-nav"><a href="/informations.html">Информация</a></li>
-                <li class="item-nav"><a href="/portfolio.html">Все наши объекты</a></li>
-                <li class="item-nav"><a href="/contact.html">Контакты</a></li>
+                <li class="item-nav"><a href="/">Главная</a></li>
+                <li class="item-nav"><a href="informations.html">Информация</a></li>
+                <li class="item-nav"><a href="portfolio.html">Все наши объекты</a></li>
+                <li class="item-nav"><a href="contact.html">Контакты</a></li>
             </ul>
         </div>
         
         <h1 class="titre-contact">Свяжитесь с нами!</h1>
-    <p class="contact-sous-titre">Свяжитесь с нами по электронной почте, телефону или почте.</p>
+    <p class="contact-sous-titre">Свяжитесь с нами по телефону или почте.</p>
 
     <div class="trois-contacts">
         <div class="box">
             <img src="ressources/placeholder.svg">
-            <span>25 Бобруйская, 88888 Минск</span>
+            <span>25 Бобруйскя, 88888 Минск</span>
         </div>
         <div class="box">
             <img src="ressources/phone-call.svg">
-            <span>+375 29 354 ...</span>
+            <span>+375 29 354 1777</span>
         </div>
         <div class="box">
             <img src="ressources/email.svg">
@@ -40,35 +54,11 @@
         </div>
     </div>
 
-
-    <form>
-        <h2>Расскажите нам о своих пожеланиях.</h2>
-
-        <label for="prenom" class="label-input">Ваша фамилия</label>
-        <input type="text" id="prenom" placeholder="Votre prénom">
-
-        <label for="nom" class="label-input">Ваше имя</label>
-        <input type="text" id="nom" placeholder="Votre nom">
-
-        <label for="tel" class="label-input">Ваш телефон</label>
-        <input type="number" id="tel" placeholder="Votre téléphone">
-
-        <p class="titre-check">Услуга : </p>
-        <div class="groupe-check">
-            <label for="louer" class="labels-check">Аренда</label>
-            <input type="checkbox" id="louer" name="louer">
-        </div>
-        <div class="groupe-check">
-            <label for="acheter" class="labels-check">Купить</label>
-            <input type="checkbox" id="acheter" name="acheter">
-        </div>
-
-        <label for="txt">Сообщение</label>
-        <textarea  id="txt" placeholder="Votre message"></textarea>
-
-        <button type="submit">Отправлять</button>
+<!-- Form -->
+    <form id="myForm">
+       <!-- пустая форма, который автоматически подменяется данными из xml файла -->
     </form>
-
+    
     <footer>Все права защищены ©</footer>
 
 </body>
